@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   # resources :users
 
-  resources :courses do
-    resources :lessons, only: %i[index create]
-  end
+  get 'courses/:course_name' => redirect('/courses/%<course_name>s/lessons'), :as => 'course'
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
